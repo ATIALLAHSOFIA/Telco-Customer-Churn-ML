@@ -11,7 +11,7 @@ COPY requirements.txt .
 RUN pip install --upgrade pip \
     && pip install -r requirements.txt
 
-RUN pip install --upgrade gradio gradio_client
+RUN pip install --upgrade gradio gradio_client --extra-index-url https://download.pytorch.org/whl/cpu
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
