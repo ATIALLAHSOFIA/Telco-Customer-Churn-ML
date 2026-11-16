@@ -9,9 +9,11 @@ COPY requirements.txt .
 
 # 4. Install Python dependencies (add curl if you use MLflow local tracking URI)
 RUN pip install --upgrade pip \
-    && pip install -r requirements.txt \
+    && pip install -r requirements.txt
+
 RUN pip install --upgrade gradio gradio_client
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # 5. Copy the entire project into the image
 COPY . .
